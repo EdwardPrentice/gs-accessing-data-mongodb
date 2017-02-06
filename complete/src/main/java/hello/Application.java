@@ -36,6 +36,9 @@ public class Application implements CommandLineRunner {
 		System.out.println("Customer found with findByFirstName('Alice'):");
 		System.out.println("--------------------------------");
 		System.out.println(repository.findByFirstName("Alice"));
+		System.out.println(repository.findByFirstName(null)); // returns null
+		System.out.println(repository.findByFirstNameIgnoreCase("ALICE")); // returns the 'Alice' user - proof that it can work
+		System.out.println(repository.findByFirstNameIgnoreCase(null)); // NullPointerException from MongoQueryCreator.java:302
 
 		System.out.println("Customers found with findByLastName('Smith'):");
 		System.out.println("--------------------------------");
